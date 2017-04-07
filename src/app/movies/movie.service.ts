@@ -1,38 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+
 import { IMovie } from "./movie";
 
 
 @Injectable()
 export class MovieService {
-    getMovies(): IMovie[] {
-        return [
-        {
-            'movieId': 1,
-            'movieTitle': 'Pulp Fiction',
-            'description': 'murzyn i trawolta',
-            'price': 19.95,
-            'starRating': 3.6,
-            'rentDate': 'kmsk',
-            'imageUrl': 'app/media/images/pulp.jpg'
-        },
-        {
-            'movieId': 2,
-            'movieTitle': 'Dr Strangelove',
-            'description': 'jak pokochalem bombe',
-            'price': 32.99,
-            'starRating': 4.2,
-            'rentDate': 'kmsk',
-            'imageUrl': 'app/media/images/dr.jpg'
-        },
-        {
-            'movieId': 5,
-            'movieTitle': 'Forest Gump',
-            'description': 'Historia życia Forresta, chłopca o niskim ilorazie inteligencji',
-            'price': 8.9,
-            'starRating': 4.8,
-            'rentDate': 'kmsk',
-            'imageUrl': 'app/media/images/forest.jpg',
-        },
-    ];
+
+    private _moviesUrl = 'db/movies/movies.json';
+
+    constructor(private _http: Http){
+
+    }
+
+    getMovies(): Observable<IMovie[]> {
+        return this._http.get(this._moviesUrl).map((response: Response) => <IMovie[]> response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    private handleError(error: Response){
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server error');
     }
 }

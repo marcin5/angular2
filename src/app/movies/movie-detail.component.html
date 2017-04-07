@@ -1,0 +1,44 @@
+<div class='panel panel-primary' *ngIf='product'>
+    <div class='panel-heading' style='font-size:large'>
+        {{pageTitle + ': ' + movie.movieTitle}}
+    </div>
+
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Title:</div>
+                    <div class='col-md-6'>{{movie.movieTitle}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Description:</div>
+                    <div class='col-md-6'>{{movie.description}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Description:</div>
+                    <div class='col-md-6'>{{movie.price|currency:'PLN':true}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>5 Star Rating:</div>
+                    <div class='col-md-6'>
+                        <rating [rating]='movie.starRating'></rating>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <img class='center-block img-responsive' 
+                     [style.width.px]='200' 
+                     [style.margin.px]='2' 
+                     [src]='movie.imageUrl'
+                     [title]='movie.movieTitle'>
+            </div>
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+</div>
