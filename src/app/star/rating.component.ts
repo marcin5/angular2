@@ -4,7 +4,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'rating',
   templateUrl: 'app/star/rating.component.html',
-  providers: [NgbRatingConfig]
+  providers: [NgbRatingConfig],
   styles: [`
     
     .star {

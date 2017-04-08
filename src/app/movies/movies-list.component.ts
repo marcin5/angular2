@@ -22,6 +22,7 @@ export class MoviesListComponent implements OnInit {
     listFilter: string = '';
     movies: IMovie[];
     temp: any = 'movieTitle';
+    asc: boolean = true;
     errorMessage: any;
 
     constructor (private _movieService: MovieService){
@@ -37,5 +38,9 @@ export class MoviesListComponent implements OnInit {
 
     onRatingClicked(message: string): void {
         this.pageTitle = 'Movies List: ' + message;
+    }
+
+    sort(temp2: any): any {
+        return temp2;
     }
 }

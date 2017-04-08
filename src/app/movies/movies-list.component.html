@@ -24,13 +24,13 @@
                 <thead>
                     <tr>
                         <th> </th>
-                        <th><a href="#" (click)='temp="movieTitle"'>Title</a></th>
-                        <th><a href="#" (click)='temp="price"'>Price</a></th>
-                        <th><a href="#" (click)='temp="starRating"'>5 Star Rating</a></th>
+                        <th><span (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'>Title</span></th>
+                        <th><span (click)='temp="price"; asc==true ? asc=false: asc= true'>Price</span></th>
+                        <th><span (click)='temp="starRating"; asc==true ? asc=false: asc= true'>5 Star Rating</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let movie of movies | movieFilter:listFilter | sortBy:temp">
+                    <tr *ngFor="let movie of movies | movieFilter:listFilter | sortBy:temp:asc">
                         <td>
                             <img [src]='movie.imageUrl'
                                 [style.width.px]='imageWidth'>

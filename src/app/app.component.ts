@@ -1,15 +1,26 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 import { MovieService } from "./movies/movie.service";
 
 @Component ({
     selector: 'pm-app',
     template: `
-    <div><h1>{{pageTitle}}</h1>
-         <pm-movies> </pm-movies>
-    </div>
-    `,
+    <div>
+        <nav class='navbar navbar-default'>
+            <div class='container-fluid'>
+                <a class='navbar-brand'>{{pageTitle}}</a>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/movies']">Available Movies</a></li>
+                    <li><a [routerLink]="['/rented']">Rented Movies</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+     </div>
+     `,
     providers: [MovieService]
 })
 export class AppComponent{
-    pageTitle: string = 'Movies Management';
+    pageTitle: string = 'VHS rental store';
 }
