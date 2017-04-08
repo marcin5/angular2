@@ -6,7 +6,6 @@ import { MovieService } from './movie.service';
     selector: 'pm-movies',
     moduleId: module.id,
     templateUrl: 'movies-list.component.html',
-    styleUrls: ['movie-list.component.css'],
     styles: [`
         a{
             text-decoration: none

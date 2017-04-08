@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MovieService } from "./movies/movie.service";
+import { MovieService } from './movies/movie.service';
 
 @Component ({
     selector: 'pm-app',
@@ -21,6 +21,6 @@ import { MovieService } from "./movies/movie.service";
      `,
     providers: [MovieService]
 })
-export class AppComponent{
+export class AppComponent {
     pageTitle: string = 'VHS rental store';
 }
