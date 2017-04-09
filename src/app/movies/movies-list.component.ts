@@ -6,14 +6,7 @@ import { NgbdModalComponent, NgbdModalContent } from '../add/add-movie.component
 @Component({
     moduleId: module.id,
     templateUrl: 'movies-list.component.html',
-    styles: [`
-        a{
-            text-decoration: none
-        }
-        td{
-            vertical-align: middle;
-        }
-    `]
+
 })
 export class MoviesListComponent implements OnInit {
     pageTitle: string = 'Available Movies List';
@@ -23,7 +16,6 @@ export class MoviesListComponent implements OnInit {
     temp: any = 'movieTitle';
     asc: boolean = true;
     errorMessage: any;
-    avCondition: boolean = true;
     closeResult: string;
 
     constructor (private _movieService: MovieService){

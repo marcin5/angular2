@@ -1,9 +1,9 @@
+<div class='panel' id="detail">
+    <div class='panel-heading' style='font-size:large'>
+        {{ pageTitle }}
+    </div>
 
-
-<div class='panel'>
-    
-
-   <!-- <div class='panel-body'>
+ <div id="detailInfo">
         <div class='row'>
             <div class='col-md-6'>
                 <div class='row'>
@@ -15,7 +15,7 @@
                     <div class='col-md-6'>{{movie.description}}</div>
                 </div>
                 <div class='row'>
-                    <div class='col-md-3'>Description:</div>
+                    <div class='col-md-3'>Price:</div>
                     <div class='col-md-6'>{{movie.price|currency:'PLN':true}}</div>
                 </div>
                 <div class='row'>
@@ -34,11 +34,14 @@
                      [title]='movie.movieTitle'>
             </div>
         </div>
-    </div>
--->
-    <div class='panel-footer'>
+
+ </div>
+
+     <div class='panel-footer'>
         <a class='btn btn-secondary' (click)='onBack()' style='width:80px'>
-            <i class='fa fa-chevron-left'></i> Back
+            <span class='fa fa-chevron-left'></span> Back
         </a>
     </div>
 </div>
+
+

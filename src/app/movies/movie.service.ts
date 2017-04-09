@@ -22,4 +22,10 @@ export class MovieService {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
+
+    getMovie(id: number): Observable<IMovie> {
+        return this.getMovies()
+            .map((movies: IMovie[]) => movies.find(m => m.movieId === id));
+    }
+
 }
