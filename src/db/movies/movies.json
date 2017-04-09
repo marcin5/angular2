@@ -5,8 +5,9 @@
             "description": "murzyn i trawolta",
             "price": 19.95,
             "starRating": 3.6,
-            "rentDate": "kmsk",
-            "imageUrl": "app/media/images/pulp.jpg"
+            "rentDate": "12.01.2013",
+            "imageUrl": "app/media/images/pulp.jpg",
+            "available": true
         },
         {
             "movieId": 2,
@@ -14,16 +15,28 @@
             "description": "jak pokochalem bombe",
             "price": 32.99,
             "starRating": 4.2,
-            "rentDate": "kmsk",
-            "imageUrl": "app/media/images/dr.jpg"
+            "rentDate": "12.02.2013",
+            "imageUrl": "app/media/images/dr.jpg",
+            "available": true
         },
         {
-            "movieId": 5,
+            "movieId": 3,
             "movieTitle": "Forest Gump",
             "description": "Historia życia Forresta, chłopca o niskim ilorazie inteligencji",
             "price": 8.9,
-            "starRating": 4.5,
-            "rentDate": "kmsk",
-            "imageUrl": "app/media/images/forest.jpg"
+            "starRating": 4.8,
+            "rentDate": "12.03.2013",
+            "imageUrl": "app/media/images/forest.jpg",
+            "available": true
+        },
+        {
+            "movieId": 4,
+            "movieTitle": "Natural Born Killers",
+            "description": "Historia dwojga młodych kochanków-morderców.",
+            "price": 10.9,
+            "starRating": 4.3,
+            "rentDate": "12.04.2013",
+            "imageUrl": "app/media/images/born.jpg",
+            "available": false
         }
 ]

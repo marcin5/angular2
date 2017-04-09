@@ -12,7 +12,9 @@ import { RatingComponent } from './star/rating.component';
 import { SortPipe } from './movies/sort.pipe';
 import { MovieDetailComponent } from './movies/movie-detail.component';
 import { RentedMoviesComponent } from './rented/rented-movies.component';
-
+import { AvailablePipe } from './movies/available.pipe';
+import { RentedPipe } from './movies/rented.pipe';
+import { MovieDetailGuard } from './movies/movie-guard.service';
 
 @NgModule({
   imports: [
@@ -22,8 +24,10 @@ import { RentedMoviesComponent } from './rented/rented-movies.component';
     HttpModule,
     RouterModule.forRoot([
       { path: 'movies', component: MoviesListComponent },
-      { path: 'movies/:movieTitle', component: MovieDetailComponent },
-      { path: 'rented/', component: RentedMoviesComponent },
+      { path: 'movie/:movieId',
+        canActivate: [MovieDetailGuard],
+        component: MovieDetailComponent },
+      { path: 'rented', component: RentedMoviesComponent },
       { path: '', redirectTo: 'movies', pathMatch: 'full' },
       { path: '**', redirectTo: 'movies', pathMatch: 'full' }
     ])
@@ -35,8 +39,11 @@ import { RentedMoviesComponent } from './rented/rented-movies.component';
     RatingComponent,
     SortPipe,
     MovieDetailComponent,
-    RentedMoviesComponent
+    RentedMoviesComponent,
+    AvailablePipe,
+    RentedPipe
   ],
+  providers: [ MovieDetailGuard ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

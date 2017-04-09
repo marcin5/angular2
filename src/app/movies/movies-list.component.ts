@@ -3,7 +3,6 @@ import { IMovie } from './movie';
 import { MovieService } from './movie.service';
 
 @Component({
-    selector: 'pm-movies',
     moduleId: module.id,
     templateUrl: 'movies-list.component.html',
     styles: [`
@@ -23,6 +22,7 @@ export class MoviesListComponent implements OnInit {
     temp: any = 'movieTitle';
     asc: boolean = true;
     errorMessage: any;
+    avCondition: boolean = true;
 
     constructor (private _movieService: MovieService){
     }
@@ -35,11 +35,11 @@ export class MoviesListComponent implements OnInit {
                 );
     }
 
-    onRatingClicked(message: string): void {
-        this.pageTitle = 'Movies List: ' + message;
-    }
-
-    sort(temp2: any): any {
-        return temp2;
+    refresh(): void {
+        this._movieService.getMovies()
+                .subscribe(
+                    movies => this.movies = movies,
+                    error => this.errorMessage = <any>error
+                );
     }
 }

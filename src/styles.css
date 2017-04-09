@@ -3,3 +3,33 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+tbody {
+      background-color: #f6f3f7 - #111;
+}
+
+nav {
+     background: #1D1D1D!important; 
+}
+
+li:hover {
+     background: #737373!important; 
+}
+
+.panel-heading{
+  background: #737373!important; 
+}
+
+tbody > tr {
+    background: #eaeaea!important; 
+    vertical-align: center;
+}
+
+tr:hover {
+  background: #bdbdbd!important;
+
+}
+
+body{
+  background: #eaeaea!important;
+  
+}

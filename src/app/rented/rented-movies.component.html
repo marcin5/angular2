@@ -1,15 +1,51 @@
-﻿<div class="panel panel-primary">
-    <div class="panel-heading">
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
         {{pageTitle}}
     </div>
-    <div class="panel-body"  >
-        
-        <div class="row"  >
-            <div class="text-center">Developed by:</div>
-            <h3 class="text-center">Deborah Kurata</h3>
 
-            <div class="text-center">@deborahkurata</div>
-            
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-4'>
+                <input type='text'
+                    [(ngModel)]='listFilter'/>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h3>Filtered by: {{listFilter}}</h3>
+            </div>
+        </div>
+
+        <div class='has-error'> </div>
+
+        <div class='table-responsive'>
+            <table class='table' *ngIf='movies && movies.length'>
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th><span (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'>Title</span></th>
+                        <th><span (click)='temp="price"; asc==true ? asc=false: asc= true'>Price</span></th>
+                        <th><span (click)='temp="starRating"; asc==true ? asc=false: asc= true'>5 Star Rating</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movie of movies | movieFilter:listFilter | rented | sortBy:temp:asc">
+                        <td>
+                            <img [src]='movie.imageUrl'
+                                [style.width.px]='imageWidth'>
+                        </td>
+                        <td>{{ movie.movieTitle }}</td>
+                        <td>{{ movie.price | currency:'PLN' }}</td>
+                        <td>
+                            <rating [rating]='movie.starRating'></rating>
+                        </td>
+                        <td>
+                            <a (click)='movie.available=true' class="btn btn-default"><span class="glyphicon glyphicon-forward"></span> return</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
         </div>
     </div>
-</div>
