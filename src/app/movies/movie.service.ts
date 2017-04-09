@@ -7,7 +7,6 @@ import { IMovie } from './movie';
 
 @Injectable()
 export class MovieService {
-
     private _moviesUrl = 'db/movies/movies.json';
 
     constructor(private _http: Http){

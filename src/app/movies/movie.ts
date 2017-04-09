@@ -6,5 +6,6 @@ export interface IMovie{
     rentDate: string;
     starRating: number;
     imageUrl: string;
+    gifUrl: string;
     available: boolean;
 }

@@ -7,7 +7,8 @@ import { MovieService } from './movies/movie.service';
     <div>
         <nav class='navbar navbar-default'>
             <div class='container-fluid'>
-                <a class='navbar-brand'>{{pageTitle}}</a>
+                <span id='homeImg'><img src='app/media/images/home.png'/></span>
+                <span id='title'>{{pageTitle}}</span>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['/movies']">Available Movies</a></li>
                     <li><a [routerLink]="['/rented']">Rented Movies</a></li>

@@ -5,14 +5,17 @@
 
     <div class='panel-body'>
         <div class='row'>
-            <div class='col-md-1'>Filter:</div>
             <div class='col-md-2'>
-                <input type='text' class=""
-                    [(ngModel)]='listFilter'/>
+                <input type="text" [(ngModel)]='listFilter' class="form-control" placeholder="Filter">
+        </div>
+            <div class='col-md-2' id="addBtn">
+                <a class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span>add movie
+                </a>
             </div>
         </div>
-        
 
+        
         <div class='has-error'> </div>
 
         <div class='table-responsive'>
@@ -23,24 +26,29 @@
                         <th><span (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'>Title</span></th>
                         <th><span (click)='temp="price"; asc==true ? asc=false: asc= true'>Price</span></th>
                         <th><span (click)='temp="starRating"; asc==true ? asc=false: asc= true'>5 Star Rating</span></th>
+                        <th><span></span></th>
                     </tr>
                 </thead>
                 <tbody data-link="row" class="rowlink">
-                    <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc" [routerLink]="['/movie', movie.movieId]">
-                        <td>
+                    <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc">
+                        <td >
                             <img [src]='movie.imageUrl'
                                 [style.width.px]='imageWidth'>
                         </td>
-                        <td ><a [routerLink]="['/movie', movie.movieId]">
+                        <td >
                                 {{ movie.movieTitle }}
-                            </a>
                         </td>
                         <td>{{ movie.price | currency:'PLN' }}</td>
                         <td>
                             <rating [rating]='movie.starRating'></rating>
                         </td>
-                        <td>
-                            <a href="#" (click)='movie.available=false' class="btn btn-default"><span class="glyphicon glyphicon-film"></span> rent</a>
+                        <td id="last">
+                            <a href="#" (click)='movie.available=false' class="btn btn-default">
+                                <span class="glyphicon glyphicon-share-alt"></span>rent
+                            </a>
+                            <a [routerLink]="['/movie', movie.movieId]"class="btn btn-default">
+                                <span class="glyphicon glyphicon-film"></span>details
+                            </a>
                         </td>
                     </tr>
                 </tbody>

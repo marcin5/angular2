@@ -11,25 +11,23 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
       position: relative;  
       display: inline-block;
       font-size: 2rem;
-      color: #d3d3d3;
+      color: grey;
     }
     .full {
-      color: grey;
+      color: red;
     }
     .half {
       position: absolute;
       display: inline-block;
       overflow: hidden;
-      color: grey;
+      color: red;
     }
   `]
 })
 export class RatingComponent {
   @Input() rating: number;
   constructor(config: NgbRatingConfig) {
-    // customize default values of ratings used by this component tree
     config.max = 5;
     config.readonly = true;
-
   }
 }

@@ -8,7 +8,13 @@ tbody {
 }
 
 nav {
-     background: #1D1D1D!important; 
+     background: -moz-linear-gradient(left, rgba(26,25,26,1) 0%, rgba(89,89,89,1) 44%, rgba(61,61,61,1) 71%, rgba(71,71,71,1) 87%, rgba(44,44,44,1) 91%, rgba(71,71,71,1) 95%, rgba(19,19,19,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(26,25,26,1)), color-stop(44%, rgba(89,89,89,1)), color-stop(71%, rgba(61,61,61,1)), color-stop(87%, rgba(71,71,71,1)), color-stop(91%, rgba(44,44,44,1)), color-stop(95%, rgba(71,71,71,1)), color-stop(100%, rgba(19,19,19,1)));
+background: -webkit-linear-gradient(left, rgba(26,25,26,1) 0%, rgba(89,89,89,1) 44%, rgba(61,61,61,1) 71%, rgba(71,71,71,1) 87%, rgba(44,44,44,1) 91%, rgba(71,71,71,1) 95%, rgba(19,19,19,1) 100%);
+background: -o-linear-gradient(left, rgba(26,25,26,1) 0%, rgba(89,89,89,1) 44%, rgba(61,61,61,1) 71%, rgba(71,71,71,1) 87%, rgba(44,44,44,1) 91%, rgba(71,71,71,1) 95%, rgba(19,19,19,1) 100%);
+background: -ms-linear-gradient(left, rgba(26,25,26,1) 0%, rgba(89,89,89,1) 44%, rgba(61,61,61,1) 71%, rgba(71,71,71,1) 87%, rgba(44,44,44,1) 91%, rgba(71,71,71,1) 95%, rgba(19,19,19,1) 100%);
+background: linear-gradient(to right, rgba(26,25,26,1) 0%, rgba(89,89,89,1) 44%, rgba(61,61,61,1) 71%, rgba(71,71,71,1) 87%, rgba(44,44,44,1) 91%, rgba(71,71,71,1) 95%, rgba(19,19,19,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a191a', endColorstr='#131313', GradientType=1 );
 }
 
 li:hover {
@@ -16,20 +22,58 @@ li:hover {
 }
 
 .panel-heading{
-  background: #737373!important; 
+background: -moz-linear-gradient(left, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(82,82,107,1)), color-stop(29%, rgba(147,147,179,0.99)), color-stop(82%, rgba(102,102,107,0.96)), color-stop(100%, rgba(69,67,69,0.95)));
+background: -webkit-linear-gradient(left, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
+background: -o-linear-gradient(left, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
+background: -ms-linear-gradient(left, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
+background: linear-gradient(to right, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52526b', endColorstr='#454345', GradientType=1 );
+  color: white;
+}
+
+.panel{
+  border-color: #bdbdbd!important;
 }
 
 tbody > tr {
-    background: #eaeaea!important; 
-    vertical-align: center;
+    background: #f3f3f3!important; 
 }
 
-tr:hover {
-  background: #bdbdbd!important;
+ td {
+    vertical-align: middle!important;
+}
 
+tbody > tr:hover {
+  background: #eaeaea!important;
 }
 
 body{
   background: #eaeaea!important;
   
+}
+#last{
+  max-width: 100px;
+}
+
+.glyphicon{
+  padding-right: 5px;
+}
+
+#addBtn{
+  float: right;
+}
+
+#homeImg{
+  float: left;
+  padding-top: 10px;
+}
+
+#title {
+  float: right;
+  padding-top: 10px;
+  font-size: 25px;
+  vertical-align: middle;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #eaeaea;
 }

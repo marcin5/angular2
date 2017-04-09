@@ -10,7 +10,7 @@ export class MovieDetailComponent implements OnInit{
     pageTitle: string = 'Movie Detail';
     movie: IMovie;
 
-    constructor(private _route: ActivatedRoute
+    constructor(private _route: ActivatedRoute,
                 private _router: Router) {
 
     }
