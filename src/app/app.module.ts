@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -15,9 +15,13 @@ import { RentedMoviesComponent } from './rented/rented-movies.component';
 import { AvailablePipe } from './movies/available.pipe';
 import { RentedPipe } from './movies/rented.pipe';
 import { MovieDetailGuard } from './movies/movie-guard.service';
+import { NgbdModalComponent, NgbdModalContent } from './add/add-movie.component';
+import { JsonpModule } from '@angular/http';
 
 @NgModule({
   imports: [
+    ReactiveFormsModule,
+    JsonpModule,
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
@@ -41,8 +45,11 @@ import { MovieDetailGuard } from './movies/movie-guard.service';
     MovieDetailComponent,
     RentedMoviesComponent,
     AvailablePipe,
-    RentedPipe
+    RentedPipe,
+    NgbdModalComponent,
+    NgbdModalContent
   ],
+  entryComponents: [NgbdModalContent],
   providers: [ MovieDetailGuard ],
   bootstrap: [ AppComponent ]
 })

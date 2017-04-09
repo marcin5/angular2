@@ -1,32 +1,16 @@
 <div class='panel '>
-    <div class='panel-heading'>
-        {{pageTitle}}
-    </div>
-
     <div class='panel-body'>
         <div class='row'>
-            <div class='col-md-2'>
-                <input type="text" [(ngModel)]='listFilter' class="form-control" placeholder="Filter">
-        </div>
-            <div class='col-md-2' id="addBtn">
-                <a class="btn btn-default">
-                    <span class="glyphicon glyphicon-plus"></span>add movie
-                </a>
-            </div>
-        </div>
-
-        
-        <div class='has-error'> </div>
 
         <div class='table-responsive'>
-            <table class='table table-inverse' *ngIf='movies && movies.length'>
-                <thead>
+            <table class='table' *ngIf='movies && movies.length'>
+                <thead class='table-inverse'>
                     <tr>
-                        <th> </th>
+                        <th id="filter" ><input type="text" [(ngModel)]='listFilter' class="form-control form-control-sm" placeholder="Filter"></th>
                         <th><span (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'>Title</span></th>
                         <th><span (click)='temp="price"; asc==true ? asc=false: asc= true'>Price</span></th>
                         <th><span (click)='temp="starRating"; asc==true ? asc=false: asc= true'>5 Star Rating</span></th>
-                        <th><span></span></th>
+                        <th><span><ngbd-modal-component></ngbd-modal-component> </span></th>
                     </tr>
                 </thead>
                 <tbody data-link="row" class="rowlink">
@@ -43,16 +27,17 @@
                             <rating [rating]='movie.starRating'></rating>
                         </td>
                         <td id="last">
-                            <a href="#" (click)='movie.available=false' class="btn btn-default">
-                                <span class="glyphicon glyphicon-share-alt"></span>rent
+                            <a (click)='movie.available=false' class="btn btn-secondary">
+                                <span class="fa fa-arrow-down"></span>rent
                             </a>
-                            <a [routerLink]="['/movie', movie.movieId]"class="btn btn-default">
-                                <span class="glyphicon glyphicon-film"></span>details
+                            <a [routerLink]="['/movie', movie.movieId]"class="btn btn-secondary">
+                                <span class="fa fa-film"></span>details
                             </a>
                         </td>
                     </tr>
                 </tbody>
-
             </table>
         </div>
     </div>
+
+

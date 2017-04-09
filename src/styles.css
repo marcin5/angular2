@@ -41,12 +41,19 @@ tbody > tr {
     background: #f3f3f3!important; 
 }
 
- td {
+a {
+  color: #bdbdbd!important; 
+}
+
+td {
+    vertical-align: middle!important;
+}
+th {
     vertical-align: middle!important;
 }
 
 tbody > tr:hover {
-  background: #eaeaea!important;
+  background: #eaeabe!important;
 }
 
 body{
@@ -55,31 +62,50 @@ body{
   
 }
 #last{
-  max-width: 100px;
-}
-
-.glyphicon{
-  padding-right: 5px;
-}
-
-#addBtn{
-  float: right;
+  max-width: 120px;
 }
 
 #homeImg{
-  float: left;
-  padding-top: 10px;
+  float: left!important;
 }
 
 #title {
-  float: right;
-  padding-top: 10px;
+  position: absolute;
+    right: 15px;
+    top: 10px;
   font-size: 25px;
   vertical-align: middle;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: #eaeaea;
 }
-
+td > a {
+  border-color: #292b2c!important;
+  color: #292b2c!important;
+     
+}
 a:focus{
       color: #bdbdbd!important;
 }
+
+#filter{
+  max-width: 120px!important;
+}
+
+.table {
+    margin-top: 10px;
+}
+
+.fa{
+  padding-right: 5px;
+}
+
+li {
+  margin-top: -20px!important;
+  margin-bottom: -23px!important;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+

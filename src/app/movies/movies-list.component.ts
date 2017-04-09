@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from './movie';
 import { MovieService } from './movie.service';
+import { NgbdModalComponent, NgbdModalContent } from '../add/add-movie.component';
 
 @Component({
     moduleId: module.id,
@@ -23,6 +24,7 @@ export class MoviesListComponent implements OnInit {
     asc: boolean = true;
     errorMessage: any;
     avCondition: boolean = true;
+    closeResult: string;
 
     constructor (private _movieService: MovieService){
     }
