@@ -4,19 +4,10 @@ import { MovieService } from '../movies/movie.service';
 
 @Component({
     templateUrl: 'app/rented/rented-movies.component.html',
-    styles: [`
-        a{
-            text-decoration: none
-        }
-        td{
-            vertical-align: middle;
-        }
-        
-    `]
 })
 export class RentedMoviesComponent implements OnInit {
-    pageTitle: string = 'Rented';
-    imageWidth: number = 70;
+    pageTitle: string = 'Rented Movies List';
+    imageWidth: number = 50;
     listFilter: string = '';
     movies: IMovie[];
     asc: boolean = true;

@@ -30,6 +30,7 @@ background: -ms-linear-gradient(left, rgba(82,82,107,1) 0%, rgba(147,147,179,0.9
 background: linear-gradient(to right, rgba(82,82,107,1) 0%, rgba(147,147,179,0.99) 29%, rgba(102,102,107,0.96) 82%, rgba(69,67,69,0.95) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52526b', endColorstr='#454345', GradientType=1 );
   color: white;
+  border-color: #bdbdbd!important;
 }
 
 .panel{
@@ -50,6 +51,7 @@ tbody > tr:hover {
 
 body{
   background: #eaeaea!important;
+  
   
 }
 #last{
@@ -76,4 +78,8 @@ body{
   vertical-align: middle;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: #eaeaea;
+}
+
+a:focus{
+      color: #bdbdbd!important;
 }

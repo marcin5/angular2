@@ -15,8 +15,8 @@ import { MovieService } from './movie.service';
     `]
 })
 export class MoviesListComponent implements OnInit {
-    pageTitle: string = 'Movies List';
-    imageWidth: number = 70;
+    pageTitle: string = 'Available Movies List';
+    imageWidth: number = 50;
     listFilter: string = '';
     movies: IMovie[];
     temp: any = 'movieTitle';
