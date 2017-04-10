@@ -9,7 +9,7 @@ import { IMovie } from './movie';
 export class MovieService {
     private _moviesUrl = 'db/movies/movies.json';
 
-    constructor(private _http: Http){
+    constructor(private _http: Http) {
 
     }
 
