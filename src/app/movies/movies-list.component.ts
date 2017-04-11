@@ -34,8 +34,6 @@ export class MoviesListComponent implements OnInit {
         this.getMovies();
     }
 
-
-
     refresh() {
         this.getMovies();
     }

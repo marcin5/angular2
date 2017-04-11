@@ -18,12 +18,12 @@
                             <img [src]='movie.imageUrl'
                                 [style.width.px]='imageWidth'>
                         </td>
-                        <td >{{ movie.movieTitle }}</td>
+                        <td>{{ movie.movieTitle }}</td>
                         <td>{{ movie.price | currency:'PLN' }}</td>
                         <td> <rating [rating]='movie.starRating'></rating> </td>
                         <td id="last">
                              <a (click)='movie.available=true' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
-                                <a [routerLink]="['/movie', movie.movieId]"class="btn btn-secondary">
+                                <a [routerLink]="['/movie', movie.id]"class="btn btn-secondary">
                                 <span class="fa fa-film"></span>details
                             </a>
                         </td>

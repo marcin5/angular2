@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 
 import { Movie } from './movie';
 
@@ -19,10 +21,6 @@ export class MovieService {
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
-    }
-
-    private handleErrorHttp(error: Response): void {
-
     }
 
     getMovie(id: number): Promise<Movie> {

@@ -10,7 +10,7 @@ export class Movie {
     available: boolean;*/
 
     constructor(
-        public movieId: number,
+        public id: number,
         public movieTitle: string,
         public description: string,
         public price: number,

@@ -52,7 +52,6 @@ tbody > tr:hover {
 body{
   background: #eaeaea!important;
   
-  
 }
 #last{
   max-width: 120px;
@@ -60,6 +59,10 @@ body{
 
 #homeImg{
   float: left!important;
+}
+
+.sort:hover{
+  cursor: pointer!important; 
 }
 
 #title {

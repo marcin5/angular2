@@ -5,7 +5,7 @@ export class InMemoryDataService implements InMemoryDbService {
     createDb() {
         let movies = [
         {
-            movieId: 1,
+            id: 1,
             movieTitle: 'Pulp Fiction',
             description: 'murzyn i trawolta',
             price: 19.95,
@@ -16,7 +16,7 @@ export class InMemoryDataService implements InMemoryDbService {
             available: true
         },
         {
-            movieId: 2,
+            id: 2,
             movieTitle: 'Dr Strangelove',
             description: 'jak pokochalem bombe',
             price: 32.99,
@@ -27,7 +27,7 @@ export class InMemoryDataService implements InMemoryDbService {
             available: true
         },
         {
-            movieId: 3,
+            id: 3,
             movieTitle: 'Forest Gump',
             description: 'Historia życia Forresta, chłopca o niskim ilorazie inteligencji',
             price: 8.9,
@@ -38,7 +38,7 @@ export class InMemoryDataService implements InMemoryDbService {
             available: true
         },
         {
-            movieId: 4,
+            id: 4,
             movieTitle: 'Natural Born Killers',
             description: 'Historia dwojga młodych kochanków-morderców.',
             price: 10.9,
@@ -49,7 +49,7 @@ export class InMemoryDataService implements InMemoryDbService {
             available: true
         },
         {
-            movieId: 5,
+            id: 5,
             movieTitle: '2001: A Space Odyssey',
             description: 'Jeden z najwybitniejszych filmów fantastycznych w historii kina.',
             price: 15.9,
@@ -60,7 +60,7 @@ export class InMemoryDataService implements InMemoryDbService {
             available: false
         },
         {
-            movieId: 6,
+            id: 6,
             movieTitle: 'Star Wars: The Force Awakens',
             description: 'Złe Imperium zostaje zastąpione przez Najwyższy Porządek, który chce władzy nad galaktyką.',
             price: 15.9,
