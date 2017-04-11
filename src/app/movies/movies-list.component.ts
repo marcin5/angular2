@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from './../movie/movie';
 import { MovieService } from './../movie/movie.service';
-import { NgbdModalComponent, NgbdModalContent } from '../add/add-movie.component';
+
 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -15,6 +15,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'movies',
     templateUrl: './movies-list.component.html',
+    styles: [`
+ 
+    `]
 })
 export class MoviesListComponent implements OnInit {
     pageTitle: string = 'Available Movies List';
@@ -27,8 +30,7 @@ export class MoviesListComponent implements OnInit {
     closeResult: string;
     selectedMovie: Movie;
 
-    constructor (private movieService: MovieService) {
-    }
+    constructor (private movieService: MovieService) {}
 
     ngOnInit(): void {
         this.getMovies();
@@ -43,5 +45,10 @@ export class MoviesListComponent implements OnInit {
             movies => this.movies = movies,
             error => this.errorMessage = <any>error
         );
+    }
+
+    rent(movie: Movie): void {
+        this.movieService.rent(movie);
+        this.refresh();
     }
 }

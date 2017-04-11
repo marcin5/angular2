@@ -1,28 +1,32 @@
-﻿<div class='panel '>
+﻿
+<div class='panel '>
     <div class='panel-body'>
         <div class='row'>
+
         <div class='table-responsive'>
             <table class='table' *ngIf='movies && movies.length'>
                 <thead class='table-inverse'>
                     <tr>
                         <th id="filter" ><input type="text" [(ngModel)]='listFilter' class="form-control form-control-sm" placeholder="Filter"></th>
-                        <th><span (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'>Title</span></th>
-                        <th><span (click)='temp="price"; asc==true ? asc=false: asc= true'>Price</span></th>
-                        <th><span (click)='temp="starRating"; asc==true ? asc=false: asc= true'>5 Star Rating</span></th>
-                        <th><span></span></th>
+                        <th><span class="sort" (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Title</span></th>
+                        <th><span class="sort" (click)='temp="price"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Price</span></th>
+                        <th><span class="sort" (click)='temp="starRating"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>5 Star Rating</span></th>
+                        <th><span><add-movie></add-movie> </span></th>
                     </tr>
                 </thead>
                 <tbody data-link="row" class="rowlink">
-                    <tr *ngFor="let movie of movies | movieFilter:listFilter | rented | sortBy:temp:asc">
+                    <tr *ngFor="let movie of movies | movieFilter:listFilter | rented | sortBy:temp:asc" >
                         <td >
-                            <img [src]='movie.imageUrl'
+                            <img src="app/media/images/{{movie.imgUrl}}"
                                 [style.width.px]='imageWidth'>
                         </td>
-                        <td>{{ movie.movieTitle }}</td>
+                        <td >{{ movie.movieTitle }}</td>
                         <td>{{ movie.price | currency:'PLN' }}</td>
-                        <td> <rating [rating]='movie.starRating'></rating> </td>
+                        <td>
+                            <rating [rating]='movie.starRating'></rating>
+                        </td>
                         <td id="last">
-                             <a (click)='movie.available=true' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
+                             <a (click)='returnMovie(movie)' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
                                 <a [routerLink]="['/movie', movie.id]"class="btn btn-secondary">
                                 <span class="fa fa-film"></span>details
                             </a>
@@ -31,6 +35,7 @@
                 </tbody>
             </table>
         </div>
-        </div>
     </div>
-</div>  
+
+
+ 

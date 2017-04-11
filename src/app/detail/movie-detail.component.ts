@@ -7,7 +7,7 @@ import { Location }from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    templateUrl: 'app/movies/movie-detail.component.html',
+    templateUrl: 'app/detail/movie-detail.component.html',
     styles: [`
     h3{
         padding: 10px;

@@ -36,4 +36,39 @@ export class MovieService {
             .map(response => response.json().data as Movie[])
             .catch(this.handleError);
     }
+
+    rent(movie: Movie): Promise<Movie> {
+        movie.available = false;
+        return this.update(movie);
+    }
+
+    returnMovie(movie: Movie): Promise<Movie> {
+        movie.available = true;
+        return this.update(movie);
+    }
+
+    update(movie: Movie): Promise<Movie> {
+        const url = `${this.moviesUrl}/${movie.id}`;
+        return this.http
+            .put(url, JSON.stringify(movie), { headers: this.headers })
+            .toPromise()
+            .then(() => movie)
+            .catch(this.handleError);
+    }
+
+    create(movie: Movie): Promise<Movie> {
+        return this.http
+            .post(this.moviesUrl, JSON.stringify({
+                movieTitle: movie.movieTitle,
+                description: movie.description,
+                price: movie.price,
+                starRating: movie.starRating,
+                imgUrl: movie.imgUrl,
+                gifUrl: movie.gifUrl,
+                available: movie.available
+            }), { headers: this.headers })
+            .toPromise()
+            .then(response => response.json().data as Movie)
+            .catch(this.handleError);
+    }
 }

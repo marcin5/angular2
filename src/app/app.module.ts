@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { MoviesListComponent } from './movies/movies-list.component';
-import { MovieFilterPipe } from './movies/movie-filter.pipe';
+import { MovieFilterPipe } from './pipes/movie-filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './star/rating.component';
-import { SortPipe } from './movies/sort.pipe';
-import { MovieDetailComponent } from './movies/movie-detail.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { MovieDetailComponent } from './detail/movie-detail.component';
 import { RentedMoviesComponent } from './rented/rented-movies.component';
-import { AvailablePipe } from './movies/available.pipe';
-import { RentedPipe } from './movies/rented.pipe';
-import { NgbdModalComponent, NgbdModalContent } from './add/add-movie.component';
+import { AvailablePipe } from './pipes/available.pipe';
+import { RentedPipe } from './pipes/rented.pipe';
+import { AddMovieComponent, AddMovieContent } from './add-movie/add-movie.component';
 import { JsonpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data/in-memory-data.service';
@@ -44,10 +44,10 @@ import { AppRoutingModule } from './app-routing.module';
     RentedMoviesComponent,
     AvailablePipe,
     RentedPipe,
-    NgbdModalComponent,
-    NgbdModalContent
+    AddMovieComponent,
+    AddMovieContent
   ],
-  entryComponents: [NgbdModalContent],
+  entryComponents: [AddMovieContent],
   providers: [ MovieService ],
   bootstrap: [ AppComponent ]
 })

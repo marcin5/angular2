@@ -3,14 +3,14 @@
         <h3>{{ pageTitle }}</h3>
     </div>
 
- <div id="detailInfo">
+    <div id="detailInfo">
         <div *ngIf='movie' class='row'>
             <div class='col-md-6'>
                 <div class='col-md-6'>
                 <img class='center-block img-responsive' 
                      [style.width.px]='150' 
                      [style.margin.px]='2' 
-                     [src]='movie.imageUrl'
+                     src="app/media/images/{{movie.imgUrl}}"
                      [title]='movie.movieTitle'>
                 </div>
                 <hr>
@@ -38,13 +38,13 @@
                 <img class='center-block img-responsive' 
                      [style.width.px]='500' 
                      [style.margin.px]='2' 
-                     [src]='movie.gifUrl'
+                     src="app/media/gifs/{{movie.gifUrl}}"
                      [title]='movie.movieTitle'>
             </div>
         </div>
- </div>
+    </div>
 
-     <div class='panel-footer'>
+    <div class='panel-footer'>
         <a class='btn btn-secondary' (click)='onBack()' style='width:80px'>
             <span class='fa fa-chevron-left'></span> Back
         </a>

@@ -5,8 +5,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
   selector: 'rating',
   templateUrl: 'app/star/rating.component.html',
   providers: [NgbRatingConfig],
-  styles: [`
-    
+  styles: [`   
     .star {
       position: relative;  
       display: inline-block;

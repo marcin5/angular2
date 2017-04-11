@@ -37,4 +37,13 @@ export class RentedMoviesComponent implements OnInit {
             );
     }
 
+    returnMovie(movie: Movie): void {
+        this.movieService.returnMovie(movie);
+        this.refresh();
+    }
+
+    refresh() {
+        this.getMovies();
+    }
+
 }

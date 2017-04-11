@@ -10,13 +10,13 @@
                         <th><span class="sort" (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Title</span></th>
                         <th><span class="sort" (click)='temp="price"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Price</span></th>
                         <th><span class="sort" (click)='temp="starRating"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>5 Star Rating</span></th>
-                        <th><span><ngbd-modal-component></ngbd-modal-component> </span></th>
+                        <th><span><add-movie></add-movie></span></th>
                     </tr>
                 </thead>
                 <tbody data-link="row" class="rowlink">
-                    <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc">
+                    <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc" >
                         <td >
-                            <img [src]='movie.imageUrl'
+                            <img src="app/media/images/{{movie.imgUrl}}"
                                 [style.width.px]='imageWidth'>
                         </td>
                         <td >{{ movie.movieTitle }}</td>
@@ -25,11 +25,14 @@
                             <rating [rating]='movie.starRating'></rating>
                         </td>
                         <td id="last">
-                            <a (click)='movie.available=false' class="btn btn-secondary">
-                                <span class="fa fa-arrow-down"></span>rent
+                             <a (click)='rent(movie)' class="btn btn-secondary" title='Edit Movie'>
+                                <span class="fa fa-edit" (click)='selectMovie(movie)' ></span>
                             </a>
-                            <a [routerLink]="['/movie', movie.id]"class="btn btn-secondary">
-                                <span class="fa fa-film"></span>details
+                            <a (click)='rent(movie)' class="btn btn-secondary" title='Rent Movie'>
+                                <span class="fa fa-arrow-down" ></span>
+                            </a>
+                            <a [routerLink]="['/movie', movie.id]" class="btn btn-secondary" title='Details'>
+                                <span class="fa fa-film" ></span>
                             </a>
                         </td>
                     </tr>
