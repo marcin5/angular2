@@ -1,39 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { IMovie } from './movie';
-import { MovieService } from './movie.service';
+import { Movie } from './../movie/movie';
+import { MovieService } from './../movie/movie.service';
 import { NgbdModalComponent, NgbdModalContent } from '../add/add-movie.component';
 
-@Component({
-    moduleId: module.id,
-    templateUrl: 'movies-list.component.html',
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+
+@Component({
+    selector: 'movies',
+    templateUrl: './movies-list.component.html',
 })
 export class MoviesListComponent implements OnInit {
     pageTitle: string = 'Available Movies List';
     imageWidth: number = 50;
     listFilter: string = '';
-    movies: IMovie[];
+    movies: Movie[];
     temp: any = 'movieTitle';
     asc: boolean = true;
     errorMessage: any;
     closeResult: string;
+    selectedMovie: Movie;
 
-    constructor (private _movieService: MovieService){
+    constructor (private movieService: MovieService) {
     }
 
     ngOnInit(): void {
-        this._movieService.getMovies()
-                .subscribe(
-                    movies => this.movies = movies,
-                    error => this.errorMessage = <any>error
-                );
+        this.getMovies();
     }
 
-    refresh(): void {
-        this._movieService.getMovies()
-                .subscribe(
-                    movies => this.movies = movies,
-                    error => this.errorMessage = <any>error
-                );
+
+
+    refresh() {
+        this.getMovies();
+    }
+
+     getMovies(): void {
+        this.movieService.getMovies().subscribe(
+            movies => this.movies = movies,
+            error => this.errorMessage = <any>error
+        );
     }
 }

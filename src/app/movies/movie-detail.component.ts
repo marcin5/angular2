@@ -1,22 +1,31 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IMovie } from './movie';
-import { MovieService } from './movie.service';
+import { Movie } from './../movie/movie';
+import { MovieService } from './../movie/movie.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     templateUrl: 'app/movies/movie-detail.component.html',
+    styles: [`
+    h3{
+        padding: 10px;
+    }
+
+    .panel-footer{
+        padding: 10px;
+    }
+  `]
 })
 
 export class MovieDetailComponent implements OnInit, OnDestroy {
     pageTitle: string = 'Movie Detail';
-    movie: IMovie;
+    movie: Movie;
     errorMessage: string;
     private sub: Subscription;
 
     constructor(private _route: ActivatedRoute,
                 private _router: Router,
-                private _movieService: MovieService) {
+                private movieService: MovieService) {
     }
 
     ngOnDestroy() {
@@ -36,8 +45,6 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
     }
 
     getMovie(id: number) {
-        this._movieService.getMovie(id).subscribe(
-            movie => this.movie = movie,
-            error => this.errorMessage = <any>error);
+        this.movieService.getMovie(id);
     }
 }

@@ -14,27 +14,25 @@ import { MovieDetailComponent } from './movies/movie-detail.component';
 import { RentedMoviesComponent } from './rented/rented-movies.component';
 import { AvailablePipe } from './movies/available.pipe';
 import { RentedPipe } from './movies/rented.pipe';
-import { MovieDetailGuard } from './movies/movie-guard.service';
 import { NgbdModalComponent, NgbdModalContent } from './add/add-movie.component';
 import { JsonpModule } from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data/in-memory-data.service';
+import { CommonModule } from '@angular/common';
+import { MovieService } from './movie/movie.service';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
-    ReactiveFormsModule,
-    JsonpModule,
     BrowserModule,
+    CommonModule,
     FormsModule,
-    NgbModule.forRoot(),
     HttpModule,
-    RouterModule.forRoot([
-      { path: 'movies', component: MoviesListComponent },
-      { path: 'movie/:movieId',
-        canActivate: [MovieDetailGuard],
-        component: MovieDetailComponent },
-      { path: 'rented', component: RentedMoviesComponent },
-      { path: '', redirectTo: 'movies', pathMatch: 'full' },
-      { path: '**', redirectTo: 'movies', pathMatch: 'full' }
-    ])
+    JsonpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    NgbModule.forRoot(),
+    AppRoutingModule
  ],
   declarations: [
     AppComponent,
@@ -50,7 +48,7 @@ import { JsonpModule } from '@angular/http';
     NgbdModalContent
   ],
   entryComponents: [NgbdModalContent],
-  providers: [ MovieDetailGuard ],
+  providers: [ MovieService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

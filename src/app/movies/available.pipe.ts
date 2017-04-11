@@ -1,14 +1,14 @@
 import { PipeTransform, Pipe } from '@angular/core';
-import { IMovie } from './movie';
+import { Movie } from './../movie/movie';
 
 @Pipe({
     name: 'available'
 })
 
 export class AvailablePipe implements PipeTransform {
-    transform(value: IMovie[]): IMovie[] {
+    transform(value: Movie[]): Movie[] {
         let filterBy = true;
-        return filterBy ? value.filter((movie: IMovie) =>
+        return filterBy ? value.filter((movie: Movie) =>
             movie.available === filterBy) : value;
     }
 }

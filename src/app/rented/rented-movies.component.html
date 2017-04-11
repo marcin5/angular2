@@ -1,7 +1,6 @@
 ﻿<div class='panel '>
     <div class='panel-body'>
         <div class='row'>
-
         <div class='table-responsive'>
             <table class='table' *ngIf='movies && movies.length'>
                 <thead class='table-inverse'>
@@ -19,18 +18,19 @@
                             <img [src]='movie.imageUrl'
                                 [style.width.px]='imageWidth'>
                         </td>
-                        <td >
-                                {{ movie.movieTitle }}
-                        </td>
+                        <td >{{ movie.movieTitle }}</td>
                         <td>{{ movie.price | currency:'PLN' }}</td>
-                        <td>
-                            <rating [rating]='movie.starRating'></rating>
-                        </td>
+                        <td> <rating [rating]='movie.starRating'></rating> </td>
                         <td id="last">
-                             <a href="#"  (click)='movie.available=true' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
+                             <a (click)='movie.available=true' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
+                                <a [routerLink]="['/movie', movie.movieId]"class="btn btn-secondary">
+                                <span class="fa fa-film"></span>details
+                            </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        </div>
     </div>
+</div>  
