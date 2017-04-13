@@ -15,7 +15,7 @@
                             </th>
                             <th>
                                 <div id="addVHS">
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addMovieModal" (click)='addMovieForm.reset(); '>Add Movie</button>
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addMovieModal" (click)='addMovieForm.reset();'>Add Movie</button>
                                 </div>
                             </th>
                         </tr>
@@ -31,8 +31,8 @@
                                 <rating [rating]='movie.starRating'></rating>
                             </td>
                             <td id="last">
-                                <button title='Edit Movie' class="fa fa-edit btn btn-secondary" data-toggle="modal" 
-                                        data-target="#editMovieModal" (click)='selectMovie(movie)'></button>
+                                <a title='Edit Movie' class="fa fa-edit btn btn-secondary" data-toggle="modal" 
+                                        data-target="#editMovieModal" (click)='selectMovie(movie)'></a>
 
                                 <a (click)='rent(movie)' class="btn btn-secondary" title='Rent Movie'>
                                     <span class="fa fa-arrow-down"></span>

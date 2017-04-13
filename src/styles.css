@@ -75,6 +75,10 @@ body{
   color: #eaeaea;
 }
 
+.btn:hover{
+  cursor: pointer!important; 
+}
+
 td> a {
   border-color: #292b2c!important;
   color: #292b2c!important;  
