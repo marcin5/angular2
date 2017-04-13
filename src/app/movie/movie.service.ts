@@ -65,7 +65,8 @@ export class MovieService {
                 starRating: movie.starRating,
                 imgUrl: movie.imgUrl,
                 gifUrl: movie.gifUrl,
-                available: movie.available
+                available: movie.available,
+                releaseDate: movie.releaseDate
             }), { headers: this.headers })
             .toPromise()
             .then(response => response.json().data as Movie)

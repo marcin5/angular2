@@ -21,7 +21,7 @@ export class MoviesListComponent implements OnInit {
     errorMessage: any;
     closeResult: string;
     selectedMovie: Movie;
-    movie: Movie = new Movie(0, null, null, null, 0, null, null, true);
+    movie: Movie = new Movie(0, null, null, null, 0, null, null, true, null);
 
     constructor (private movieService: MovieService) {}
 
@@ -48,5 +48,14 @@ export class MoviesListComponent implements OnInit {
     getNotification(addedMovie: Movie) {
         this.refresh();
         console.log(addedMovie);
+    }
+
+    addMovie(movie: Movie): void {
+        this.movieService.create(movie);
+        this.refresh();
+    }
+
+    selectMovie(movie: Movie): void {
+        this.selectedMovie = movie;
     }
 }

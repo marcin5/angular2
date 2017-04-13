@@ -13,6 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'pulp.jpg',
             gifUrl: 'pulp.gif',
             available: true
+            releaseDate: '1990-01-01',
         },
         {
             id: 2,
@@ -23,6 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'dr.jpg',
             gifUrl: 'dr.gif',
             available: true
+            releaseDate: '1990-01-01',
         },
         {
             id: 3,
@@ -33,6 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'forest.jpg',
             gifUrl: 'forest.gif',
             available: true
+            releaseDate: '1990-01-01',
         },
         {
             id: 4,
@@ -43,6 +46,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'born.jpg',
             gifUrl: 'natural_born.gif',
             available: true
+            releaseDate: '1990-01-01',
         },
         {
             id: 5,
@@ -53,6 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'odyssey.jpg',
             gifUrl: 'odyssey.gif',
             available: false
+            releaseDate: '1990-01-01',
         },
         {
             id: 6,
@@ -63,6 +68,7 @@ export class InMemoryDataService implements InMemoryDbService {
             imgUrl: 'star_wars.jpg',
             gifUrl: 'star_wars.gif',
             available: false
+            releaseDate: '1990-01-01',
         }
     ];
         return { movies };

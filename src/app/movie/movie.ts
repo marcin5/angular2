@@ -7,7 +7,8 @@ export class Movie {
         public starRating: number,
         public imgUrl: string,
         public gifUrl: string,
-        public available: boolean
+        public available: boolean,
+        public releaseDate: Date,
     ) {    }
 }
 
