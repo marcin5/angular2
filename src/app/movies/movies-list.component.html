@@ -60,7 +60,7 @@
                 <form #addMovieForm="ngForm">
                     <div class="form-group">
                         <label for="movieTitle">Movie Title</label>
-                        <input #movieTitle="ngModel" required [(ngModel)]="movie.movieTitle" class="form-control" name="movieTitle" id="movieTitle" type="text" pattern="^[a-zA-Z0-9_:]*$">
+                        <input #movieTitle="ngModel" required [(ngModel)]="movie.movieTitle" class="form-control" name="movieTitle" id="movieTitle" type="text" pattern="^[a-zA-Z0-9_: ]*$">
                         <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger">Title format letters and numbers</div>
                     </div>
                     <div class="form-group">
@@ -106,7 +106,7 @@
                 <form #editMovieForm="ngForm">
                     <div class="form-group">
                         <label for="selectedTitle">Movie Title</label>
-                        <input #selectedTitle="ngModel" required [(ngModel)]="selectedMovie.movieTitle" class="form-control" name="selectedTitle" id="selectedTitle" type="text" pattern="^[a-zA-Z0-9_:]*$">
+                        <input #selectedTitle="ngModel" required [(ngModel)]="selectedMovie.movieTitle" class="form-control" name="selectedTitle" id="selectedTitle" type="text" pattern="^[a-zA-Z0-9_: ]*$">
                         <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger">Title format letters and numbers</div>
                     </div>
                     <div class="form-group">
@@ -132,7 +132,7 @@
                         <input [(ngModel)]="selectedMovie.gifUrl" class="form-control" name="selectedGifUrl" id="selectedGifUrl" type="text" placeholder="forest.gif">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" (click)="update(selectedMovie)" data-dismiss="modal" class="btn btn-success" [disabled]="!editMovieForm.form.valid">save</button>
+                        <button type="submit" (click)="updateMovie(selectedMovie)" data-dismiss="modal" class="btn btn-success" [disabled]="!editMovieForm.form.valid">save</button>
                         <button type="button" class="btn close" data-dismiss="modal">Close</button>
                     </div>
                 </form>

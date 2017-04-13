@@ -53,11 +53,6 @@ export class MoviesListComponent implements OnInit {
         this.refresh();
     }
 
-    getNotification(addedMovie: Movie) {
-        this.refresh();
-        console.log(addedMovie);
-    }
-
     addMovie(movie: Movie): void {
         this.movieService.create(movie);
         this.refresh();
@@ -65,5 +60,10 @@ export class MoviesListComponent implements OnInit {
 
     selectMovie(movie: Movie): void {
         this.selectedMovie = movie;
+    }
+
+    updateMovie(movie: Movie): void {
+        this.movieService.update(movie);
+        this.refresh();
     }
 }
