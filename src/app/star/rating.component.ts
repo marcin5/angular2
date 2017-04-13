@@ -25,6 +25,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class RatingComponent {
   @Input() rating: number;
+
   constructor(config: NgbRatingConfig) {
     config.max = 5;
     config.readonly = true;

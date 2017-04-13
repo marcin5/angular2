@@ -19,7 +19,7 @@ export class RentedMoviesComponent implements OnInit {
     asc: boolean = true;
     errorMessage: any;
     temp: any = 'movieTitle';
-    selectedMovie: Movie;
+    selectedMovie: Movie = new Movie(0, null, null, null, 0, null, null, true, null);
 
     damage: boolean = false;
     rewinded: boolean = false;
