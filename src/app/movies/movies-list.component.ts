@@ -1,11 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Movie } from './../movie/movie';
 import { MovieService } from './../movie/movie.service';
-
-
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -15,9 +10,6 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'movies',
     templateUrl: './movies-list.component.html',
-    styles: [`
- 
-    `]
 })
 export class MoviesListComponent implements OnInit {
     pageTitle: string = 'Available Movies List';
@@ -29,6 +21,7 @@ export class MoviesListComponent implements OnInit {
     errorMessage: any;
     closeResult: string;
     selectedMovie: Movie;
+    movie: Movie = new Movie(0, null, null, null, 0, null, null, true);
 
     constructor (private movieService: MovieService) {}
 
@@ -50,5 +43,10 @@ export class MoviesListComponent implements OnInit {
     rent(movie: Movie): void {
         this.movieService.rent(movie);
         this.refresh();
+    }
+
+    getNotification(addedMovie: Movie) {
+        this.refresh();
+        console.log(addedMovie);
     }
 }

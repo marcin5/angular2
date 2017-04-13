@@ -1,34 +1,28 @@
-<div class="modal-header">
-    <h4 class="modal-title">Add VHS</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-</div>
-<div class="modal-body">
-    <form>
-        <div class="form-group">
-            <label for="movieTitle">Title</label>
-            <input name="movieTitle" id="movieTitle" [(ngModel)]="movie.movieTitle" class="form-control form-control-sm" type="text" placeholder="Title" required="true">
-        </div>
+
+<form #movieAddForm="ngForm"> 
+        <div class="form-group">
+          <label for="movieTitle">Movie genre</label>
+          <input required [(ngModel)]="movie.movieTitle" #movieTitle="ngModel" class="form-control" name="movieTitle" id="movieTitle" type="text">
+          <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger"> Movie Title is required</div>
+        </div> 
         <div class="form-group">
             <label for="description">Description</label>
-            <input name="description" id="description" [(ngModel)]="movie.description" class="form-control form-control-sm" type="text" placeholder="Description" required="true">
+            <input [(ngModel)]="movie.description" name="description" class="form-control" id="description" type="text">
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input name="price" id="price" [(ngModel)]="movie.price" class="form-control form-control-sm" type="text" placeholder="Price" required="true">
+            <input name="price" id="price" [(ngModel)]="movie.price" pattern="^\d{1,8}(?:\.\d{1,2})?$" class="form-control" type="text" required>
         </div>
         <div class="form-group">
             <label for="imgUrl">Img Url</label>
-            <input name="imgUrl" id="imgUrl" [(ngModel)]="movie.imgUrl" class="form-control form-control-sm" type="text" placeholder="Cover url" required="true">
+            <input name="imgUrl" id="imgUrl" [(ngModel)]="movie.imgUrl" class="form-control" type="text">
         </div>
         <div class="form-group">
             <label for="gifUrl">Gif url</label>
-            <input name="gifUrl" id="gifUrl" [(ngModel)]="movie.gifUrl" class="form-control form-control-sm" type="text" placeholder="Gif url" required="true">
+            <input [(ngModel)]="movie.gifUrl" class="form-control" name="gifUrl" id="gifUrl" type="text">
         </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary float-left" (click)="save(movie)" >Save</button>
-    <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-</div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" (click)="add(model)" [disabled]="!movieAddForm.form.valid" data-dismiss='modal'>Save movie</button>
+        </div>
+</form>
+

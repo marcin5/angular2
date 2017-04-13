@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { FormsModule} from '@angular/forms';
+import { HttpModule, JsonpModule  } from '@angular/http';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent }  from './app.component';
 import { MoviesListComponent } from './movies/movies-list.component';
 import { MovieFilterPipe } from './pipes/movie-filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './star/rating.component';
-import { SortPipe } from './pipes/sort.pipe';
+
 import { MovieDetailComponent } from './detail/movie-detail.component';
 import { RentedMoviesComponent } from './rented/rented-movies.component';
+import { SortPipe } from './pipes/sort.pipe';
 import { AvailablePipe } from './pipes/available.pipe';
 import { RentedPipe } from './pipes/rented.pipe';
-import { AddMovieComponent, AddMovieContent } from './add-movie/add-movie.component';
-import { JsonpModule } from '@angular/http';
+import { AddMovieComponent} from './add-movie/add-movie.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data/in-memory-data.service';
-import { CommonModule } from '@angular/common';
+
 import { MovieService } from './movie/movie.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,15 +39,13 @@ import { AppRoutingModule } from './app-routing.module';
     MoviesListComponent,
     MovieFilterPipe,
     RatingComponent,
-    SortPipe,
     MovieDetailComponent,
     RentedMoviesComponent,
+    SortPipe,
     AvailablePipe,
     RentedPipe,
-    AddMovieComponent,
-    AddMovieContent
+    AddMovieComponent
   ],
-  entryComponents: [AddMovieContent],
   providers: [ MovieService ],
   bootstrap: [ AppComponent ]
 })

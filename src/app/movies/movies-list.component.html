@@ -1,44 +1,90 @@
 <div class='panel '>
     <div class='panel-body'>
         <div class='row'>
-
-        <div class='table-responsive'>
-            <table class='table' *ngIf='movies && movies.length'>
-                <thead class='table-inverse'>
-                    <tr>
-                        <th id="filter" ><input type="text" [(ngModel)]='listFilter' class="form-control form-control-sm" placeholder="Filter"></th>
-                        <th><span class="sort" (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Title</span></th>
-                        <th><span class="sort" (click)='temp="price"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Price</span></th>
-                        <th><span class="sort" (click)='temp="starRating"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>5 Star Rating</span></th>
-                        <th><span><add-movie></add-movie></span></th>
-                    </tr>
-                </thead>
-                <tbody data-link="row" class="rowlink">
-                    <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc" >
-                        <td >
-                            <img src="app/media/images/{{movie.imgUrl}}"
-                                [style.width.px]='imageWidth'>
-                        </td>
-                        <td >{{ movie.movieTitle }}</td>
-                        <td>{{ movie.price | currency:'PLN' }}</td>
-                        <td>
-                            <rating [rating]='movie.starRating'></rating>
-                        </td>
-                        <td id="last">
-                             <a (click)='rent(movie)' class="btn btn-secondary" title='Edit Movie'>
-                                <span class="fa fa-edit" (click)='selectMovie(movie)' ></span>
-                            </a>
-                            <a (click)='rent(movie)' class="btn btn-secondary" title='Rent Movie'>
-                                <span class="fa fa-arrow-down" ></span>
-                            </a>
-                            <a [routerLink]="['/movie', movie.id]" class="btn btn-secondary" title='Details'>
-                                <span class="fa fa-film" ></span>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class='table-responsive'>
+                <table class='table' *ngIf='movies && movies.length'>
+                    <thead class='table-inverse'>
+                        <tr>
+                            <th id="filter"><input type="text" [(ngModel)]='listFilter' class="form-control form-control-sm" placeholder="Filter"></th>
+                            <th><span class="sort" (click)='temp="movieTitle"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Title</span>
+                            </th>
+                            <th><span class="sort" (click)='temp="price"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>Price</span>
+                            </th>
+                            <th><span class="sort" (click)='temp="starRating"; asc==true ? asc=false: asc= true'><span class="fa fa-sort"></span>5
+                                Star Rating</span>
+                            </th>
+                            <th>
+                                <div id="addVHS">
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addMovieModal" (click)='addMovieForm.reset(); '>Add VHS</button>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-link="row" class="rowlink">
+                        <tr *ngFor="let movie of movies | movieFilter:listFilter | available | sortBy:temp:asc">
+                            <td>
+                                <img src="app/media/images/{{movie.imgUrl}}" [style.width.px]='imageWidth'>
+                            </td>
+                            <td>{{ movie.movieTitle }}</td>
+                            <td>{{ movie.price | currency:'PLN' }}</td>
+                            <td>
+                                <rating [rating]='movie.starRating'></rating>
+                            </td>
+                            <td id="last">
+                                <a (click)='rent(movie)' class="btn btn-secondary" title='Edit Movie'>
+                                    <span class="fa fa-edit" (click)='selectMovie(movie)'></span>
+                                </a>
+                                <a (click)='rent(movie)' class="btn btn-secondary" title='Rent Movie'>
+                                    <span class="fa fa-arrow-down"></span>
+                                </a>
+                                <a [routerLink]="['/movie', movie.id]" class="btn btn-secondary" title='Details'>
+                                    <span class="fa fa-film"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+</div>
 
-
+<div id="addMovieModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Movie</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form #addMovieForm="ngForm">
+                    <div class="form-group">
+                        <label for="movieTitle">Movie Title</label>
+                        <input required [(ngModel)]="movie.movieTitle" #movieTitle="ngModel" class="form-control" name="movieTitle" id="movieTitle" type="text">
+                        <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger"> Movie Title is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input [(ngModel)]="movie.description" name="description" class="form-control" id="description" type="text">
+                    </div>
+                    <div class="form-group">
+                         <label for="price">Price</label>
+                          <input name="price" id="price" [(ngModel)]="movie.price" pattern="^\d{1,8}(?:\.\d{1,2})?$" class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgUrl">Img file</label>
+                        <input name="imgUrl" id="imgUrl" [(ngModel)]="movie.imgUrl" class="form-control" type="text" placeholder="forest.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="gifUrl">Gif file</label>
+                        <input [(ngModel)]="movie.gifUrl" class="form-control" name="gifUrl" id="gifUrl" type="text" placeholder="forest.gif">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" (click)="addVHS(vhs)" data-dismiss="modal" class="btn btn-success" [disabled]="!addMovieForm.form.valid">save</button>
+                        <button type="button" class="btn close" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,22 +1,19 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, OnChanges, Input } from '@angular/core';
 
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MovieService } from './../movie/movie.service';
 import { Movie } from './../movie/movie';
+import { NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-modal-content',
-  templateUrl: 'app/add-movie/add-movie.component.html',
-
-  providers: [ MovieService ],
+  selector: 'add-movie',
+  templateUrl: './add-movie.component.html'
 })
-export class AddMovieContent implements OnInit, OnChanges{
-  @Input() name: any;
-    movies: Movie[];
+export class AddMovieComponent implements OnInit, OnChanges {
+    @Input() name: string;
     movie: Movie;
 
-  constructor(public activeModal: NgbActiveModal,
-              private movieService: MovieService) {}
+    constructor(private movieService: MovieService,
+                public activeModal: NgbActiveModal) {}
 
     save(movie: Movie): void {
         this.movieService.create(movie);
@@ -29,22 +26,4 @@ export class AddMovieContent implements OnInit, OnChanges{
     ngOnChanges(): void {
         this.movie = new Movie(0, null, null, null, 0, null, null, true);
     }
-}
-
-@Component({
-  selector: 'add-movie',
-  template: `
-  <button class="btn btn-sm btn-secondary" role="button" (click)="open()"><span class="fa fa-plus"></span>Add movie</button>
-  `,
-})
-export class AddMovieComponent {
-    errorMessage: any;
-    closeResult: string;
-
-  constructor(private modalService: NgbModal) {}
-
-  open() {
-    const modalRef = this.modalService.open(AddMovieContent);
-    modalRef.componentInstance.name = 'World';
-  }
 }
