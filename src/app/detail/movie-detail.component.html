@@ -27,6 +27,10 @@
                     <div class='col-md-6'>{{movie.price|currency:'PLN':true}}</div>
                 </div>
                 <div class='row'>
+                    <div class='col-md-3'>Release Date:</div>
+                    <div class='col-md-6'>{{movie.releaseDate}}</div>
+                </div>
+                <div class='row'>
                     <div class='col-md-3'>5 Star Rating:</div>
                     <div class='col-md-6'>
                         <rating [rating]='movie.starRating'></rating>

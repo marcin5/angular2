@@ -26,8 +26,11 @@
                             <rating [rating]='movie.starRating'></rating>
                         </td>
                         <td id="last">
-                             <a (click)='returnMovie(movie)' class="btn btn-secondary"><span class="fa fa-forward"></span> return</a>
-                                <a [routerLink]="['/movie', movie.id]"class="btn btn-secondary">
+                            <span>
+                                <button title='Return' class="fa fa-forward btn btn-secondary" data-toggle="modal" 
+                                        data-target="#returnMovieModal" (click)='selectMovie(movie)'></button>
+                            </span>
+                            <a [routerLink]="['/movie', movie.id]"class="btn btn-secondary">
                                 <span class="fa fa-film"></span>details
                             </a>
                         </td>
@@ -36,6 +39,43 @@
             </table>
         </div>
     </div>
+
+<div id="returnMovieModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Return Movie</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form #movieReturnForm="ngForm">
+                    <div class="form-group">        
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="damage" [(ngModel)]="damage" name="damage">damaged</label> 100PLN
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="rewind" [(ngModel)]="rewind" name="rewind">not rewinded</label> 10PLN
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="delay" [(ngModel)]="delay" name="delay">return delay</label> 5PLN
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <p>Cost: {{sum(damage,rewind,delay)}}</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" [disabled]="!movieReturnForm.form.valid" class="btn btn-success" data-dismiss="modal" (click)='returnMovie(selectedMovie)'>
+                        return</button>
+                </form>
+            </div>
+    </div>
+</div>
 
 
  

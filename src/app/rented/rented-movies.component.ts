@@ -19,11 +19,15 @@ export class RentedMoviesComponent implements OnInit {
     asc: boolean = true;
     errorMessage: any;
     temp: any = 'movieTitle';
+    selectedMovie: Movie;
 
-    constructor(
-        private movieService: MovieService,
-        private router: Router
-    ) { }
+    damage: boolean = false;
+    rewinded: boolean = false;
+    delayed: boolean = false;
+    cost: number;
+
+    constructor(private movieService: MovieService,
+                private router: Router) { }
 
     ngOnInit(): void {
         this.getMovies();
@@ -46,4 +50,21 @@ export class RentedMoviesComponent implements OnInit {
         this.getMovies();
     }
 
+    selectMovie(movie: Movie): void {
+        this.selectedMovie = movie;
+    }
+
+    sum(damage: boolean, rewinded: boolean, delayed: boolean): Number {
+        this.cost = 0;
+        if (damage) {
+            this.cost += 100;
+        }
+        if (rewinded) {
+            this.cost += 10;
+        }
+        if (delayed) {
+            this.cost += 5;
+        }
+        return this.cost;
+    }
 }
