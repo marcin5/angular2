@@ -23,7 +23,6 @@ export class MovieDetailComponent implements OnInit {
     pageTitle: string = 'Movie Detail';
     movie: Movie;
     errorMessage: string;
-    private sub: Subscription;
     selectedMovie: Movie;
 
     constructor(private route: ActivatedRoute,
