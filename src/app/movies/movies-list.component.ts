@@ -10,6 +10,14 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'movies',
     templateUrl: './movies-list.component.html',
+    styles: [`    
+        .ng-valid[required], .ng-valid.required  {
+            border-left: 5px solid #42A948;
+        }
+            .ng-invalid:not(form)  {
+        border-left: 5px solid #a94442;
+        }`]
+
 })
 export class MoviesListComponent implements OnInit {
     pageTitle: string = 'Available Movies List';
@@ -20,7 +28,7 @@ export class MoviesListComponent implements OnInit {
     asc: boolean = true;
     errorMessage: any;
     closeResult: string;
-    selectedMovie: Movie;
+    selectedMovie: Movie = new Movie(0, null, null, null, 0, null, null, true, null);
     movie: Movie = new Movie(0, null, null, null, 0, null, null, true, null);
 
     constructor (private movieService: MovieService) {}

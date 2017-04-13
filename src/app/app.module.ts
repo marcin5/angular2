@@ -15,7 +15,6 @@ import { RentedMoviesComponent } from './rented/rented-movies.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { AvailablePipe } from './pipes/available.pipe';
 import { RentedPipe } from './pipes/rented.pipe';
-import { AddMovieComponent} from './add-movie/add-movie.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data/in-memory-data.service';
 
@@ -43,8 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
     RentedMoviesComponent,
     SortPipe,
     AvailablePipe,
-    RentedPipe,
-    AddMovieComponent
+    RentedPipe
   ],
   providers: [ MovieService ],
   bootstrap: [ AppComponent ]

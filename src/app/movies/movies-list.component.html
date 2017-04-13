@@ -31,7 +31,7 @@
                                 <rating [rating]='movie.starRating'></rating>
                             </td>
                             <td id="last">
-                                <button title='Edit Movie' class="fa fa-edit btn btn-secondary"  data-toggle="modal" 
+                                <button title='Edit Movie' class="fa fa-edit btn btn-secondary" data-toggle="modal" 
                                         data-target="#editMovieModal" (click)='selectMovie(movie)'></button>
 
                                 <a (click)='rent(movie)' class="btn btn-secondary" title='Rent Movie'>
@@ -60,8 +60,8 @@
                 <form #addMovieForm="ngForm">
                     <div class="form-group">
                         <label for="movieTitle">Movie Title</label>
-                        <input required [(ngModel)]="movie.movieTitle" #movieTitle="ngModel" class="form-control" name="movieTitle" id="movieTitle" type="text" pattern="^[a-zA-Z0-9_:]*$">
-                        <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger"> Movie Title is required</div>
+                        <input #movieTitle="ngModel" required [(ngModel)]="movie.movieTitle" class="form-control" name="movieTitle" id="movieTitle" type="text" pattern="^[a-zA-Z0-9_:]*$">
+                        <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger">Title format letters and numbers</div>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -69,14 +69,13 @@
                     </div>
                     <div class="form-group">
                          <label for="price">Price</label>
-                          <input name="price" id="price" [(ngModel)]="movie.price" pattern="^\d{1,8}(?:\.\d{1,2})?$" class="form-control" type="text" required>
+                        <input #price="ngModel" required [(ngModel)]="movie.price" class="form-control" name="price" id="price" type="text" pattern="^\d{1,8}(?:\.\d{1,2})?$">
+                        <div [hidden]="price.valid || price.pristine" class="alert alert-danger">"2.99" valid prioce format required</div>
                     </div>
                     <div class="form-group">
                         <label for="releaseDate">Release date</label>
-                        <input type="date" class="form-control" id="releaseDate" required pattern="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"
+                        <input type="date" class="form-control" id="releaseDate" required 
                         [(ngModel)]="movie.releaseDate" name="releaseDate" placeholder="yyyy-mm-dd" #releaseDate="ngModel">
-                        <div [hidden]="releaseDate.valid || releaseDate.pristine" class="alert alert-danger">
-                        </div>
                     </div>
                     <div class="form-group">
                         <label for="imgUrl">Img file</label>
@@ -103,31 +102,37 @@
                 <h4 class="modal-title">Edit VHS</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" >
                 <form #editMovieForm="ngForm">
                     <div class="form-group">
-                        <label for="movieTitle">Movie Title</label>
-                        <input required [(ngModel)]="movie.movieTitle" #movieTitle="ngModel" class="form-control" name="movieTitle" id="movieTitle" type="text">
-                        <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger"> Movie Title is required</div>
+                        <label for="selectedTitle">Movie Title</label>
+                        <input #selectedTitle="ngModel" required [(ngModel)]="selectedMovie.movieTitle" class="form-control" name="selectedTitle" id="selectedTitle" type="text" pattern="^[a-zA-Z0-9_:]*$">
+                        <div [hidden]="movieTitle.valid || movieTitle.pristine" class="alert alert-danger">Title format letters and numbers</div>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input [(ngModel)]="movie.description" name="description" class="form-control" id="description" type="text">
+                        <input [(ngModel)]="selectedMovie.description" name="description" class="form-control" id="description" type="text">
                     </div>
                     <div class="form-group">
-                         <label for="price">Price</label>
-                          <input name="price" id="price" [(ngModel)]="movie.price" pattern="^\d{1,8}(?:\.\d{1,2})?$" class="form-control" type="text" required>
+                         <label for="prselectedPrice">Price</label>
+                        <input #price="ngModel" required [(ngModel)]="selectedMovie.price" class="form-control" name="prselectedPrice" id="prselectedPrice" type="text" pattern="^\d{1,8}(?:\.\d{1,2})?$">
+                        <div [hidden]="price.valid || price.pristine" class="alert alert-danger">"2.99" valid prioce format required</div>
                     </div>
                     <div class="form-group">
-                        <label for="imgUrl">Img file</label>
-                        <input name="imgUrl" id="imgUrl" [(ngModel)]="movie.imgUrl" class="form-control" type="text" placeholder="forest.jpg">
+                        <label for="selectedReleaseDate">Release date</label>
+                        <input type="date" class="form-control" id="selectedReleaseDate" required 
+                        [(ngModel)]="selectedMovie.releaseDate" name="selectedReleaseDate" placeholder="yyyy-mm-dd" #releaseDate="ngModel">
                     </div>
                     <div class="form-group">
-                        <label for="gifUrl">Gif file</label>
-                        <input [(ngModel)]="movie.gifUrl" class="form-control" name="gifUrl" id="gifUrl" type="text" placeholder="forest.gif">
+                        <label for="selectedImgUrl">Img file</label>
+                        <input name="selectedImgUrl" id="selectedImgUrl" [(ngModel)]="selectedMovie.imgUrl" class="form-control" type="text" placeholder="forest.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectedGifUrl">Gif file</label>
+                        <input [(ngModel)]="selectedMovie.gifUrl" class="form-control" name="selectedGifUrl" id="selectedGifUrl" type="text" placeholder="forest.gif">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" (click)="addMovie(movie)" data-dismiss="modal" class="btn btn-success" [disabled]="!editMovieForm.form.valid">save</button>
+                        <button type="submit" (click)="update(selectedMovie)" data-dismiss="modal" class="btn btn-success" [disabled]="!editMovieForm.form.valid">save</button>
                         <button type="button" class="btn close" data-dismiss="modal">Close</button>
                     </div>
                 </form>

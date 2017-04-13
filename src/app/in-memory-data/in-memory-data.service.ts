@@ -12,7 +12,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 3.6,
             imgUrl: 'pulp.jpg',
             gifUrl: 'pulp.gif',
-            available: true
+            available: true,
             releaseDate: '1990-01-01',
         },
         {
@@ -23,7 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 4.2,
             imgUrl: 'dr.jpg',
             gifUrl: 'dr.gif',
-            available: true
+            available: true,
             releaseDate: '1990-01-01',
         },
         {
@@ -34,7 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 4.8,
             imgUrl: 'forest.jpg',
             gifUrl: 'forest.gif',
-            available: true
+            available: true,
             releaseDate: '1990-01-01',
         },
         {
@@ -45,7 +45,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 4.3,
             imgUrl: 'born.jpg',
             gifUrl: 'natural_born.gif',
-            available: true
+            available: true,
             releaseDate: '1990-01-01',
         },
         {
@@ -56,7 +56,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 4.2,
             imgUrl: 'odyssey.jpg',
             gifUrl: 'odyssey.gif',
-            available: false
+            available: false,
             releaseDate: '1990-01-01',
         },
         {
@@ -67,7 +67,7 @@ export class InMemoryDataService implements InMemoryDbService {
             starRating: 2.3,
             imgUrl: 'star_wars.jpg',
             gifUrl: 'star_wars.gif',
-            available: false
+            available: false,
             releaseDate: '1990-01-01',
         }
     ];
