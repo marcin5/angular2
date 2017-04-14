@@ -7,8 +7,10 @@ import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing/r
 
 describe('QuickStart E2E Tests', function () {
   let fixture: ComponentFixture<AppComponent>;
-  let de: DebugElement[];
+  let de: DebugElement;
+  let dt: DebugElement[];
   let comp: AppComponent;
+  let el: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,16 +22,26 @@ describe('QuickStart E2E Tests', function () {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;
-
-  });
-
-
-  it('should display: ', function () {
-    expect(true).toBe(true);
   });
 
   it('should create component', () => {
     expect(comp).toBeDefined();
+  });
+
+   it('should have expected <div> text', () => {
+    de = fixture.debugElement.query(By.css('#title'));
+    el = de.nativeElement;
+    fixture.detectChanges();
+    expect(el.textContent).toContain('VHS rental store');
+  });
+
+  it('should have expected <a> text', () => {
+    dt = fixture.debugElement.queryAll(By.css('a'));
+    fixture.detectChanges();
+    const a1 = dt[0].nativeElement;
+    const a2 = dt[1].nativeElement;
+    expect(a1.innerText).toMatch('Available Movies');
+    expect(a2.innerText).toMatch('Rented Movies');
   });
 
 });
