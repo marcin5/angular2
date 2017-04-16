@@ -7,8 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent }  from './app.component';
 import { MoviesListComponent } from './movies/movies-list.component';
 import { MovieFilterPipe } from './pipes/movie-filter.pipe';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RatingComponent } from './star/rating.component';
+import { RatingComponent } from './star/star.component';
 
 import { MovieDetailComponent } from './detail/movie-detail.component';
 import { RentedMoviesComponent } from './rented/rented-movies.component';
@@ -30,7 +29,6 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     JsonpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    NgbModule.forRoot(),
     AppRoutingModule
  ],
   declarations: [
@@ -42,7 +40,8 @@ import { AppRoutingModule } from './app-routing.module';
     RentedMoviesComponent,
     SortPipe,
     AvailablePipe,
-    RentedPipe
+    RentedPipe,
+    RatingComponent
   ],
   providers: [ MovieService ],
   bootstrap: [ AppComponent ]

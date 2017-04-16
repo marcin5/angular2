@@ -21,9 +21,9 @@
                                 [style.width.px]='imageWidth'>
                         </td>
                         <td >{{ movie.movieTitle }}</td>
-                        <td>{{ movie.price | currency:'PLN' }}</td>
+                        <td>{{ movie.price}} PLN</td>
                         <td>
-                            <rating [rating]='movie.starRating'></rating>
+                            <star [rating]='movie.starRating'></star>
                         </td>
                         <td id="last">
                             <a title='Return' class="fa fa-forward btn btn-secondary" data-toggle="modal" 
