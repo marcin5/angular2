@@ -1,4 +1,4 @@
-import { MoviesListComponent } from './movies-list.component';
+import { RentedMoviesComponent } from './rented-movies.component';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
@@ -26,10 +26,10 @@ let movies = [
     new Movie(2, 'kot', null, null, 0, null, null, true, null),
 ];
 
-describe('MoviesListComponent', function () {
-  let fixture: ComponentFixture<MoviesListComponent>;
+describe('RentedMoviesComponent', function () {
+  let fixture: ComponentFixture<RentedMoviesComponent>;
   let de: DebugElement;
-  let comp: MoviesListComponent;
+  let comp: RentedMoviesComponent;
   let el: HTMLElement;
   let movieService: MovieService;
   let spy: jasmine.Spy;
@@ -44,7 +44,7 @@ describe('MoviesListComponent', function () {
     TestBed.configureTestingModule({
         imports: [ FormsModule, HttpModule ],
         declarations: [
-            MoviesListComponent,
+            RentedMoviesComponent,
             RouterLinkStubDirective,
             RouterOutletStubComponent,
             MovieFilterPipe,
@@ -61,14 +61,10 @@ describe('MoviesListComponent', function () {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoviesListComponent);
+    fixture = TestBed.createComponent(RentedMoviesComponent);
     comp = fixture.componentInstance;
     movieService = fixture.debugElement.injector.get(MovieService);
     spy = spyOn(movieService, 'getMovies').and.returnValue(Observable.of(movies));
-  });
-
-  it('should create component', () => {
-        expect(comp).toBeDefined();
   });
 
   it('should show table', () => {
@@ -78,14 +74,14 @@ describe('MoviesListComponent', function () {
         expect(el).toBeDefined();
   });
 
-  it('should show only available movies', () => {
+  it('should show only rented movies', () => {
         fixture.detectChanges();
         let de2 = fixture.debugElement.queryAll(By.css('tr'));
         let tableRows = new Array();
         de2.forEach(tableRow => {
             tableRows.push(tableRow.nativeElement);
         });
-        expect(tableRows.length - 1).toEqual(1);
+        expect(tableRows.length - 1).toEqual(2);
   });
 
 });

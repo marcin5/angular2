@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from './../movie/movie';
 import { MovieService } from './../movie/movie.service';
-import { Router } from '@angular/router';
 
 @Component({
     templateUrl: 'app/rented/rented-movies.component.html',
@@ -26,8 +25,7 @@ export class RentedMoviesComponent implements OnInit {
     delayed: boolean = false;
     cost: number;
 
-    constructor(private movieService: MovieService,
-                private router: Router) { }
+    constructor(private movieService: MovieService) { }
 
     ngOnInit(): void {
         this.getMovies();

@@ -23,11 +23,10 @@ export class MovieService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    getMovie(id: number): Promise<Movie> {
+    getMovie(id: number): Observable<Movie> {
         const url = `${this.moviesUrl}/${id}`;
         return this.http.get(url)
-            .toPromise()
-            .then(response => response.json().data as Movie)
+            .map(response => response.json().data as Movie)
             .catch(this.handleError);
     }
 
