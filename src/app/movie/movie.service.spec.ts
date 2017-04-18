@@ -2,9 +2,8 @@ import { async, inject, TestBed } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { HttpModule, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
 
-import { MovieService } from "../movie/movie.service";
-import { Movie } from "../movie/movie";
-import { Observable } from 'rxjs/Observable';
+import { MovieService } from '../movie/movie.service';
+import { Movie } from '../movie/movie';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -12,13 +11,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 const makeMovieData = () => [
-    { movieTitle: "x" },
-    { movieTitle: "y" },
-    { movieTitle: "z" }
+    { movieTitle: 'x' },
+    { movieTitle: 'y' },
+    { movieTitle: 'z' }
 ] as Movie[];
 
 describe('MoviesService', function () {
-
 
   beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -30,7 +28,7 @@ describe('MoviesService', function () {
                 { provide: XHRBackend, useClass: MockBackend }
             ]
         })
-            .compileComponents();
+        .compileComponents();
     }));
 
     it('should instantiate service when inject service',
@@ -67,9 +65,8 @@ describe('MoviesService', function () {
         it('should have set fake movies', async(inject([], () => {
             backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
             service.getMovies().subscribe(movies => {
-                expect(movies.length).toBe(fakeMovies.length,
-                    'should have expected movies.length');
-                });
+                expect(movies.length).toBe(fakeMovies.length, 'should have expected movies.length');
+            });
         })));
     });
 

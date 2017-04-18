@@ -5,9 +5,9 @@ import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterLinkStubDirective, RouterOutletStubComponent } from '../../testing';
 
-import { MovieService } from "../movie/movie.service";
-import { Movie } from "../movie/movie";
-import { Observable } from "rxjs/Observable";
+import { MovieService } from '../movie/movie.service';
+import { Movie } from '../movie/movie';
+import { Observable } from 'rxjs/Observable';
 
 import { FormsModule} from '@angular/forms';
 import { HttpModule} from '@angular/http';
@@ -18,7 +18,6 @@ import { MovieFilterPipe } from '../pipes/movie-filter.pipe';
 import { SortPipe } from '../pipes/sort.pipe';
 import { AvailablePipe } from '../pipes/available.pipe';
 import { RentedPipe } from '../pipes/rented.pipe';
-
 
 let movies = [
     new Movie(0, 'pies', null, null, 0, null, null, false, null),
@@ -33,12 +32,6 @@ describe('MoviesListComponent', function () {
   let el: HTMLElement;
   let movieService: MovieService;
   let spy: jasmine.Spy;
-
-  let movieServiceStub = {
-        getMovies() {
-            return Observable.of(movies);
-        }
-    };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -61,10 +54,10 @@ describe('MoviesListComponent', function () {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoviesListComponent);
-    comp = fixture.componentInstance;
-    movieService = fixture.debugElement.injector.get(MovieService);
-    spy = spyOn(movieService, 'getMovies').and.returnValue(Observable.of(movies));
+        fixture = TestBed.createComponent(MoviesListComponent);
+        comp = fixture.componentInstance;
+        movieService = fixture.debugElement.injector.get(MovieService);
+        spy = spyOn(movieService, 'getMovies').and.returnValue(Observable.of(movies));
   });
 
   it('should create component', () => {
