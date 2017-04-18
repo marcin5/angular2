@@ -3,7 +3,7 @@ import { RentedMoviesComponent } from './rented-movies.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { RouterLinkStubDirective, RouterOutletStubComponent } from '../../testing';
+import { RouterLinkStubDirective, RouterOutletStubComponent } from '../../testing/router-stubs';
 
 import { MovieService } from '../movie/movie.service';
 import { Movie } from '../movie/movie';
